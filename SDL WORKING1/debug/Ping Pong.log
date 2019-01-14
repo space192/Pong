@@ -1,1 +1,5 @@
-﻿  Ping Pong.vcxproj -> C:\Users\Arthur\OneDrive\ISN\Ping Pong\Debug\Ping Pong.exe
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: Le répertoire intermédiaire (Debug\) contient des fichiers partagés provenant d'un autre projet (SDL WORKING1.vcxproj). Cela peut entraîner un comportement de nettoyage et de régénération incorrect.
+  Source.c
+c:\ping pong\sdl working1\source.c(5): error C2440: 'fonction' : impossible de convertir de 'int' en 'POINT'
+c:\ping pong\sdl working1\source.c(5): warning C4024: 'draw_line' : types différents pour le paramètre formel et réel 1
+c:\ping pong\sdl working1\source.c(5): warning C4024: 'draw_line' : types différents pour le paramètre formel et réel 2
