@@ -1,6 +1,4 @@
 ﻿  Joueurs.c
-c:\users\manil\desktop\ping ainsi que pong\sdl working1\joueurs.c(4): error C2449: trouvé '{' au niveau de la portée du fichier (en-tête de fonction manquant ?)
-c:\users\manil\desktop\ping ainsi que pong\sdl working1\joueurs.c(7): error C2059: erreur de syntaxe : '}'
   graphics.c
 c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(437): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
 c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(451): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
@@ -56,3 +54,5 @@ c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(900): warning
 c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(963): warning C4244: 'fonction' : conversion de 'time_t' en 'unsigned int', perte possible de données
   balle.c
   Génération de code en cours...
+  Source.c
+  Ping Pong.vcxproj -> C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL WORKING1\Debug\Ping Pong.exe
