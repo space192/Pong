@@ -1,4 +1,58 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: Le répertoire intermédiaire (Debug\) contient des fichiers partagés provenant d'un autre projet (SDL WORKING1.vcxproj). Cela peut entraîner un comportement de nettoyage et de régénération incorrect.
+﻿  Joueurs.c
+  graphics.c
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(437): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(451): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(504): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(508): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(509): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(510): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(512): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(517): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(518): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(519): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(521): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(537): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(541): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(544): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(560): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(564): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(565): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(566): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(571): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(572): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(573): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(588): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(592): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(593): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(594): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(599): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(600): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(601): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(616): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(620): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(621): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(622): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(627): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(628): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(629): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(645): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(649): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(650): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(651): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(656): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(657): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(658): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(675): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(676): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(678): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(679): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(684): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(685): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(686): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(687): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(900): warning C4244: '=' : conversion de 'time_t' en 'double', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\graphics.c(963): warning C4244: 'fonction' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  balle.c
+  Génération de code en cours...
   Source.c
-c:\ping pong\sdl working1\source.c(11): warning C4101: 'LigneMillieu' : variable locale non référencée
-  Ping Pong.vcxproj -> C:\Ping Pong\SDL WORKING1\Debug\Ping Pong.exe
+  Ping Pong.vcxproj -> C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL WORKING1\Debug\Ping Pong.exe
