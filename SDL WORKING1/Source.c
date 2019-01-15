@@ -8,7 +8,8 @@ int main(int argc, char *argv[])
 	POINT PositionFigure;
 	POINT JoueursUnCentre;
 	POINT JoueursDeuxCentre;
-	POINT LigneMillieu;
+	POINT LigneMillieuHaut;
+	POINT LigneMillieuBas;
 	init_graphics(800, 600);
 
 	PositionFigure.x = 400; PositionFigure.y = 300;
@@ -17,8 +18,12 @@ int main(int argc, char *argv[])
 	JoueursUnCentre.x = 20; JoueursUnCentre.y = 300;
 	Joueurs(JoueursUnCentre);
 
-	JoueursDeuxCentre.x = 400; JoueursDeuxCentre.y = 300;
+	JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300;
 	Joueurs(JoueursDeuxCentre);
+	
+	LigneMillieuHaut.x = 400; LigneMillieuHaut.y = 600;
+	LigneMillieuBas.x = 400; LigneMillieuBas.y = 0;
+	draw_line(LigneMillieuBas, LigneMillieuHaut, blanc);
 	
 
 	wait_escape();
