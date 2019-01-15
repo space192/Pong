@@ -1,11 +1,19 @@
 #include "graphics.h"
 
-void Scores(int ScorePartie)
+void ScoresJoueurUn(int ScoreJoueurUn)
 {
-	POINT CentreScore;
+	POINT CentreScoreJoueurUn;
 	
-	CentreScore.x = 300; CentreScore.y = 580;
-	aff_int(ScorePartie, 50, CentreScore, blanc);
+	CentreScoreJoueurUn.x = 300; CentreScoreJoueurUn.y = 580;
+	aff_int(ScoreJoueurUn, 50, CentreScoreJoueurUn, blanc);
 
 
+}
+
+void ScoresJoueurDeux(int ScoreJoueurDeux)
+{
+	POINT CentreScoreJoueurDeux;
+
+	CentreScoreJoueurDeux.x = 500; CentreScoreJoueurDeux.y = 580;
+	aff_int(ScoreJoueurDeux, 50, CentreScoreJoueurDeux, blanc);
 }

@@ -1,24 +1,24 @@
 #include "graphics.h"
-void balle(POINT PositionFigure);
+void balle(POINT PositionBalle);
 void Joueurs(POINT JoueursUnCentre);
 void Joueurs(POINT JoueursDeuxCentre);
-void Scores(int ScoreJoueurUn);
-void Scores(int ScoreJoueurDeux);
+void ScoresJoueurUn(int ScoreJoueurUn);
+void ScoresJoueurDeux(int ScoreJoueurDeux);
 
 int main(int argc, char *argv[])
 {
-	POINT PositionFigure;
+	POINT PositionBalle;
 	POINT JoueursUnCentre;
 	POINT JoueursDeuxCentre;
 	POINT LigneMillieuHaut;
 	POINT LigneMillieuBas;
-	int ScoreJoueurUn = 5;
-	int ScoreJoueurDeux = 10;
+	int ScoreJoueurUn = 0;
+	int ScoreJoueurDeux = 0;
 	init_graphics(800, 600);
 
-	PositionFigure.x = 400; PositionFigure.y = 300;
-	balle(PositionFigure);
-
+	PositionBalle.x = 400; PositionBalle.y = 300;
+	balle(PositionBalle);
+	
 	JoueursUnCentre.x = 20; JoueursUnCentre.y = 300;
 	Joueurs(JoueursUnCentre);
 
@@ -29,9 +29,8 @@ int main(int argc, char *argv[])
 	LigneMillieuBas.x = 400; LigneMillieuBas.y = 0;
 	draw_line(LigneMillieuBas, LigneMillieuHaut, blanc);
 	
-	Scores(ScoreJoueurUn);
-	Scores(ScoreJoueurDeux);
-	
+	ScoresJoueurUn(ScoreJoueurUn);
+	ScoresJoueurDeux(ScoreJoueurDeux);
 
 	wait_escape();
 	return(0);
