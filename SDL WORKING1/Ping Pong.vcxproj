@@ -78,12 +78,12 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Arthur\OneDrive\ISN\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL\include;C:\Users\Arthur\OneDrive\ISN\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <UndefinePreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\Arthur\OneDrive\ISN\SDL\lib\x86;C:\Users\Arthur\OneDrive\ISN\Ping Pong;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL\lib\x86;C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL WORKING1;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>SDL.lib;SDL_image.lib;SDL_ttf.lib;legacy_stdio_definitions.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -138,7 +138,9 @@
     <ClCompile Include="balle.c" />
     <ClCompile Include="graphics.c" />
     <ClCompile Include="Joueurs.c" />
-    <ClCompile Include="Source.c" />
+    <ClCompile Include="Source.c">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="couleur.h" />
