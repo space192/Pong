@@ -1,3 +1,2 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: Le répertoire intermédiaire (Debug\) contient des fichiers partagés provenant d'un autre projet (SDL WORKING1.vcxproj). Cela peut entraîner un comportement de nettoyage et de régénération incorrect.
-  Source.c
-  Ping Pong.vcxproj -> C:\Ping Pong\SDL WORKING1\Debug\Ping Pong.exe
+﻿  Source.c
+  Ping Pong.vcxproj -> C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL WORKING1\Debug\Ping Pong.exe
