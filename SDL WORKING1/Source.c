@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	JoueursUnCentre.x = 20; JoueursUnCentre.y = 300;
 	Joueurs(JoueursUnCentre);
 
-	JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300;
+	JoueursDeuxCentre.x = 400; JoueursDeuxCentre.y = 300;
 	Joueurs(JoueursDeuxCentre);
 	
 
