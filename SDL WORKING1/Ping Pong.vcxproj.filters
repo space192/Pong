@@ -21,6 +21,9 @@
     <ClCompile Include="Source.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="balle.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="couleur.h">

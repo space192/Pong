@@ -135,6 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="balle.c" />
     <ClCompile Include="graphics.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
