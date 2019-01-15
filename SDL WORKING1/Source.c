@@ -2,13 +2,13 @@
 void balle(POINT PositionFigure);
 void Joueurs(POINT JoueursUnCentre);
 void Joueurs(POINT JoueursDeuxCentre);
-int NombreDeClic;
 
 int main(int argc, char *argv[])
 {
 	POINT PositionFigure;
 	POINT JoueursUnCentre;
 	POINT JoueursDeuxCentre;
+	POINT LigneMillieu;
 	init_graphics(800, 600);
 
 	PositionFigure.x = 400; PositionFigure.y = 300;
@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
 	JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300;
 	Joueurs(JoueursDeuxCentre);
 	
+
 	wait_escape();
 	return(0);
 }
