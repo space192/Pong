@@ -1,11 +1,11 @@
 #include "graphics.h"
 
-void Score(ScorePartie)
+void Scores(int ScorePartie)
 {
-	int ScorePartie;
 	POINT CentreScore;
-	ScorePartie = 0;
-	aff_int(ScorePartie, 20, CentreScore, blanc);
+	
+	CentreScore.x = 300; CentreScore.y = 580;
+	aff_int(ScorePartie, 50, CentreScore, blanc);
 
 
 }
