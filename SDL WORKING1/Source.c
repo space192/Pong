@@ -20,10 +20,12 @@ int main(int argc, char *argv[])
 
 	JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300;
 	Joueurs(JoueursDeuxCentre);
-	
-	LigneMillieuHaut.x = 400; LigneMillieuHaut.y = 600;
+
+	LigneMillieuHaut.x = 400 + Nombreclic; LigneMillieuHaut.y = 600;
 	LigneMillieuBas.x = 400; LigneMillieuBas.y = 0;
 	draw_line(LigneMillieuBas, LigneMillieuHaut, blanc);
+	
+
 	
 
 	wait_escape();
