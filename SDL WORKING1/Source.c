@@ -12,13 +12,12 @@ int main(int argc, char *argv[])
 	POINT JoueursDeuxCentre;
 	POINT LigneMillieuHaut;
 	POINT LigneMillieuBas;
+	POINT get_arrow();
+	POINT position;
 	int ScoreJoueurUn = 0;
 	int ScoreJoueurDeux = 0;
 	init_graphics(800, 600);
 
-	PositionBalle.x = 400; PositionBalle.y = 300;
-	balle(PositionBalle);
-	
 	JoueursUnCentre.x = 20; JoueursUnCentre.y = 300;
 	Joueurs(JoueursUnCentre);
 
@@ -31,6 +30,15 @@ int main(int argc, char *argv[])
 	
 	ScoresJoueurUn(ScoreJoueurUn);
 	ScoresJoueurDeux(ScoreJoueurDeux);
+	position.x = 0; position.y = 0;
+	while (ScoreJoueurUn < 5)
+	{
+		position.x = position.x + get_arrow().x;
+		position.y = position.y + get_arrow().y;
+		PositionBalle.x = 400 + position.x; PositionBalle.y = 300 + position.y;
+		balle(PositionBalle);
+		
+	}
 
 	wait_escape();
 	return(0);
