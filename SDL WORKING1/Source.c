@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 	POINT LigneMillieuHaut;
 	POINT LigneMillieuBas;
 	POINT get_arrow();
-	POINT get_arrow2();
 	POINT PositionJoueurUn;
 	POINT PositionJoueurDeux;
 	int ScoreJoueurUn = 0;
@@ -34,8 +33,8 @@ int main(int argc, char *argv[])
 	PositionJoueurDeux.x = 0; PositionJoueurDeux.y = 0;
 	while (ScoreJoueurUn < 5)
 	{
-		PositionJoueurUn.y = PositionJoueurUn.y + get_arrow2().y;
-		JoueursUnCentre.x = 20; JoueursUnCentre.y = 300 + (PositionJoueurUn.y * 2);
+		PositionJoueurUn.y = PositionJoueurUn.y + get_arrow().x;
+		JoueursUnCentre.x = 20; JoueursUnCentre.y = 300 + (PositionJoueurUn.y * 2);				//déplacement des pods
 		Joueurs(JoueursUnCentre);
 
 		PositionJoueurDeux.y = PositionJoueurDeux.y + get_arrow().y;

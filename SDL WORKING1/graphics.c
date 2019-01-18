@@ -180,8 +180,8 @@ POINT get_arrow()
 			switch (event.key.keysym.sym)
 					{
 						case SDLK_ESCAPE : exit(0);
-						case SDLK_LEFT   : (dep.x) -= MINDEP; break;
-						case SDLK_RIGHT  : (dep.x) += MINDEP; break;
+						case SDLK_s   : (dep.x) -= MINDEP; break;
+						case SDLK_w  : (dep.x) += MINDEP; break;
 						case SDLK_UP     : (dep.y) += MINDEP; break;
 						case SDLK_DOWN   : (dep.y) -= MINDEP; break;
 						default          : break;
@@ -191,32 +191,6 @@ POINT get_arrow()
 	return dep;
 	}
 
-POINT get_arrow2()
-{
-	POINT dep2;
-	dep2.x = dep2.y = 0;
-	SDL_Event event;
-	while (SDL_PollEvent(&event))
-	{
-		/* Si l'utilisateur a demandé à fermer la fenêtre, on quitte */
-		if (event.type == SDL_QUIT) exit(0);
-
-		/* Si l'utilisateur a appuyé sur une touche */
-		if (event.type == SDL_KEYDOWN)
-		{
-			switch (event.key.keysym.sym)
-			{
-			case SDLK_ESCAPE: exit(0);
-			case SDLK_a: (dep2.x) -= MINDEP; break;
-			case SDLK_d: (dep2.x) += MINDEP; break;
-			case SDLK_w: (dep2.y) += MINDEP; break;
-			case SDLK_s: (dep2.y) -= MINDEP; break;
-			default: break;
-			}
-		}
-	}
-	return dep2;
-}
 
 	// 3.2 Renvoie déplacement de souris
 	// Meme sémantique que get_arrow()
