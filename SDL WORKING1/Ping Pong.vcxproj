@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="balle.c" />
+    <ClCompile Include="DepBalle.c" />
     <ClCompile Include="graphics.c" />
     <ClCompile Include="Joueurs.c" />
     <ClCompile Include="Score.c" />

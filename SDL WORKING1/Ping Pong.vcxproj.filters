@@ -30,6 +30,9 @@
     <ClCompile Include="Score.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="DepBalle.c">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="couleur.h">

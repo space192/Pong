@@ -7,6 +7,8 @@ void ScoresJoueurDeux(int ScoreJoueurDeux);
 
 int main(int argc, char *argv[])
 {
+	int tailleFenetreX = 800;
+	int tailleFenetreY = 600;
 	POINT PositionBalle;
 	POINT JoueursUnCentre;
 	POINT JoueursDeuxCentre;
@@ -15,13 +17,13 @@ int main(int argc, char *argv[])
 	POINT get_arrow();
 	POINT PositionJoueurUn;
 	POINT PositionJoueurDeux;
+	POINT depBalle();
 	int ScoreJoueurUn = 0;
 	int ScoreJoueurDeux = 0;
-	init_graphics(800, 600);
-
-
+	int scorePartie = 0;
+	init_graphics(tailleFenetreX, tailleFenetreY);
 	PositionBalle.x = 400; PositionBalle.y = 300;
-	balle(PositionBalle);
+
 
 	LigneMillieuHaut.x = 400 ; LigneMillieuHaut.y = 600;
 	LigneMillieuBas.x = 400; LigneMillieuBas.y = 0;
@@ -31,7 +33,9 @@ int main(int argc, char *argv[])
 	ScoresJoueurDeux(ScoreJoueurDeux);
 	PositionJoueurUn.x = 0; PositionJoueurUn.y = 0;
 	PositionJoueurDeux.x = 0; PositionJoueurDeux.y = 0;
-	while (ScoreJoueurUn < 5)
+	PositionBalle.x = 400; PositionBalle.y = 300;
+	
+	while (scorePartie < 10)
 	{
 		PositionJoueurUn.y = PositionJoueurUn.y + get_arrow().x;
 		JoueursUnCentre.x = 20; JoueursUnCentre.y = 300 + (PositionJoueurUn.y * 2);				//déplacement des pods
@@ -40,6 +44,11 @@ int main(int argc, char *argv[])
 		PositionJoueurDeux.y = PositionJoueurDeux.y + get_arrow().y;
 		JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300 + (PositionJoueurDeux.y * 2);
 		Joueurs(JoueursDeuxCentre);
+
+		PositionBalle.x = PositionBalle.x + depBalle().x;
+		PositionBalle.y = PositionBalle.y + depBalle().y;
+		balle(PositionBalle);
+
 	}
 
 	wait_escape();
