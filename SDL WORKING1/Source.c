@@ -1,4 +1,6 @@
 #include "graphics.h"
+#include <stdio.h>
+#include "unistd.h"
 void balle(POINT PositionBalle);
 void Joueurs(POINT JoueursUnCentre);
 void Joueurs(POINT JoueursDeuxCentre);
@@ -17,12 +19,13 @@ int main(int argc, char *argv[])
 	POINT get_arrow();
 	POINT PositionJoueurUn;
 	POINT PositionJoueurDeux;
+	POINT depBalle;
 	int ScoreJoueurUn = 0;
 	int ScoreJoueurDeux = 0;
 	int scorePartie = 0;
 	init_graphics(tailleFenetreX, tailleFenetreY);
 	PositionBalle.x = 400; PositionBalle.y = 300;
-
+	depBalle.x = 2; depBalle.y = 2;
 
 	LigneMillieuHaut.x = 400 ; LigneMillieuHaut.y = 600;
 	LigneMillieuBas.x = 400; LigneMillieuBas.y = 0;
@@ -44,10 +47,25 @@ int main(int argc, char *argv[])
 		JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300 + (PositionJoueurDeux.y * 2);
 		Joueurs(JoueursDeuxCentre);
 
-		PositionBalle.x = PositionBalle.x + 2;
-		PositionBalle.y = PositionBalle.y + 2;
-		balle(PositionBalle);
-
+		if (PositionBalle.y == 600)
+		{
+			PositionBalle.x = PositionBalle.x + depBalle.x;
+			PositionBalle.y = PositionBalle.y - depBalle.y;
+			balle(PositionBalle);
+		}
+		else if (PositionBalle.y == 0)
+		{
+			PositionBalle.x = PositionBalle.x + depBalle.x;
+			PositionBalle.y = PositionBalle.y + depBalle.y;
+			balle(PositionBalle);
+		}
+		else
+		{
+			PositionBalle.x = PositionBalle.x + depBalle.x;
+			PositionBalle.y = PositionBalle.y + depBalle.y;
+			balle(PositionBalle);
+		}
+		
 	}
 
 	wait_escape();
