@@ -4,10 +4,6 @@ void Joueurs(POINT JoueursCentre)
 {
 	POINT BasGauchePrincip;
 	POINT HautDroitPrincip;
-	POINT BasGaucheSecond;
-	POINT HautDroitSecond;
-	POINT BasGaucheters;
-	POINT HautDroitters;
 	POINT destockageBasGauchePrincip;
 	POINT destockageHautDroitPrincip;
 

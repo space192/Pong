@@ -17,7 +17,6 @@ int main(int argc, char *argv[])
 	POINT get_arrow();
 	POINT PositionJoueurUn;
 	POINT PositionJoueurDeux;
-	POINT depBalle();
 	int ScoreJoueurUn = 0;
 	int ScoreJoueurDeux = 0;
 	int scorePartie = 0;
@@ -33,7 +32,7 @@ int main(int argc, char *argv[])
 	ScoresJoueurDeux(ScoreJoueurDeux);
 	PositionJoueurUn.x = 0; PositionJoueurUn.y = 0;
 	PositionJoueurDeux.x = 0; PositionJoueurDeux.y = 0;
-	PositionBalle.x = 400; PositionBalle.y = 300;
+	
 	
 	while (scorePartie < 10)
 	{
@@ -45,8 +44,8 @@ int main(int argc, char *argv[])
 		JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300 + (PositionJoueurDeux.y * 2);
 		Joueurs(JoueursDeuxCentre);
 
-		PositionBalle.x = PositionBalle.x + depBalle().x;
-		PositionBalle.y = PositionBalle.y + depBalle().y;
+		PositionBalle.x = PositionBalle.x + 2;
+		PositionBalle.y = PositionBalle.y + 2;
 		balle(PositionBalle);
 
 	}
