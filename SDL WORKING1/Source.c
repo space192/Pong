@@ -20,12 +20,14 @@ int main(int argc, char *argv[])
 	POINT PositionJoueurUn;
 	POINT PositionJoueurDeux;
 	POINT depBalle;
+	POINT anciennePositionBalle;
+	POINT directionBalle;
 	int ScoreJoueurUn = 0;
 	int ScoreJoueurDeux = 0;
 	int scorePartie = 0;
 	init_graphics(tailleFenetreX, tailleFenetreY);
 	PositionBalle.x = 400; PositionBalle.y = 300;
-	depBalle.x = 2; depBalle.y = 2;
+	depBalle.x = 1; depBalle.y = 1;
 
 	LigneMillieuHaut.x = 400 ; LigneMillieuHaut.y = 600;
 	LigneMillieuBas.x = 400; LigneMillieuBas.y = 0;
@@ -36,7 +38,7 @@ int main(int argc, char *argv[])
 	PositionJoueurUn.x = 0; PositionJoueurUn.y = 0;
 	PositionJoueurDeux.x = 0; PositionJoueurDeux.y = 0;
 	
-	
+	directionBalle.y = 1;
 	while (scorePartie < 10)
 	{
 		PositionJoueurUn.y = PositionJoueurUn.y + get_arrow().x;
@@ -47,25 +49,27 @@ int main(int argc, char *argv[])
 		JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300 + (PositionJoueurDeux.y * 2);
 		Joueurs(JoueursDeuxCentre);
 
-		if (PositionBalle.y == 600)
-		{
-			PositionBalle.x = PositionBalle.x + depBalle.x;
-			PositionBalle.y = PositionBalle.y - depBalle.y;
-			balle(PositionBalle);
-		}
-		else if (PositionBalle.y == 0)
-		{
-			PositionBalle.x = PositionBalle.x + depBalle.x;
-			PositionBalle.y = PositionBalle.y + depBalle.y;
-			balle(PositionBalle);
-		}
-		else
-		{
-			PositionBalle.x = PositionBalle.x + depBalle.x;
-			PositionBalle.y = PositionBalle.y + depBalle.y;
-			balle(PositionBalle);
-		}
 		
+		switch (directionBalle.y)
+		{
+		case 1:
+			PositionBalle.x += depBalle.x;
+			PositionBalle.y += depBalle.y;
+			if (PositionBalle.y == 600)
+			{
+				directionBalle.y = 0;
+			}
+			break;
+		case 0:
+			PositionBalle.x += depBalle.x;
+			PositionBalle.y -= depBalle.y;
+			if (PositionBalle.y == 0)
+			{
+				directionBalle.y = 1;
+			}
+			break;
+		}
+		balle(PositionBalle);
 	}
 
 	wait_escape();
