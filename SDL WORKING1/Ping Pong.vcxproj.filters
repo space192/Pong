@@ -73,6 +73,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Font Include="verdana.ttf" />
+    <Font Include="verdana.ttf">
+      <Filter>Fichiers sources</Filter>
+    </Font>
   </ItemGroup>
 </Project>
