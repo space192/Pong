@@ -7,10 +7,10 @@ void balle(POINT FigureCentre)
 	POINT destockageBasGaucheBalle;
 	POINT destockageHautDroitBalle;
 
-	BasGaucheBalle.x = FigureCentre.x - 4;
-	BasGaucheBalle.y = FigureCentre.y - 4;
-	HautDroitBalle.x = FigureCentre.x + 4;
-	HautDroitBalle.y = FigureCentre.y + 4;
+	BasGaucheBalle.x = FigureCentre.x - 6;
+	BasGaucheBalle.y = FigureCentre.y - 6;
+	HautDroitBalle.x = FigureCentre.x + 6;
+	HautDroitBalle.y = FigureCentre.y + 6;
 
 	destockageBasGaucheBalle = BasGaucheBalle;
 	destockageHautDroitBalle = HautDroitBalle;
