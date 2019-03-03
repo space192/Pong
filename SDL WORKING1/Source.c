@@ -22,9 +22,7 @@ int main(int argc, char *argv[])
 	POINT BasGaucheDeux;
 	POINT HautGaucheDeux;
 	POINT depBalle;
-	POINT anciennePositionBalle;
 	POINT directionBalle;
-	POINT destockageGetArrow;
 	POINT multiDirectionBalle;
 	int ScoreJoueurUn = 0;
 	int ScoreJoueurDeux = 0;
@@ -32,7 +30,9 @@ int main(int argc, char *argv[])
 	init_graphics(tailleFenetreX, tailleFenetreY);
 	PositionBalle.x = 400; PositionBalle.y = 300;
 	depBalle.x = 1; depBalle.y = 1;
-	
+
+	ScoresJoueurUn(ScoreJoueurUn);
+	ScoresJoueurDeux(ScoreJoueurDeux);
 
 	PositionJoueurUn.x = 0; PositionJoueurUn.y = 0;
 	PositionJoueurDeux.x = 0; PositionJoueurDeux.y = 0;
@@ -42,6 +42,9 @@ int main(int argc, char *argv[])
 	while (scorePartie < 10)
 	{
 		multiDirectionBalle = get_arrow();
+
+
+
 		switch (multiDirectionBalle.x) //getarrow.x correspond au déplacement en y du joueur 1
 		{
 		case 1:
@@ -63,6 +66,8 @@ int main(int argc, char *argv[])
 		JoueursUnCentre.x = 20; JoueursUnCentre.y = 300 + (PositionJoueurUn.y * 2);				//déplacement des pods
 		Joueurs(JoueursUnCentre);
 
+
+
 		JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300 + (PositionJoueurDeux.y * 2);
 		Joueurs(JoueursDeuxCentre);
 
@@ -76,20 +81,19 @@ int main(int argc, char *argv[])
 		HautGaucheDeux.x = JoueursDeuxCentre.x - 10;
 		HautGaucheDeux.y = JoueursDeuxCentre.y + 100;
 
-		ScoresJoueurUn(ScoreJoueurUn);
-		ScoresJoueurDeux(ScoreJoueurDeux);
-
 		if (PositionBalle.x == 800)
 		{
 			ScoreJoueurUn++;
 			PositionBalle.x = 400;
 			PositionBalle.y = 300;
+			ScoresJoueurUn(ScoreJoueurUn);
 		}
 		else if (PositionBalle.x == 0)
 		{
 			ScoreJoueurDeux++;
 			PositionBalle.x = 400;
 			PositionBalle.y = 300;
+			ScoresJoueurDeux(ScoreJoueurDeux);
 		}
 		else
 		{
