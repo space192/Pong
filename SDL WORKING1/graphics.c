@@ -82,7 +82,7 @@ void init_graphics(int W, int H)
 	
 	// Initialisation de la SDL_surface
 	SDL_Init(SDL_INIT_VIDEO);
-	SDL_screen = SDL_SetVideoMode(WIDTH, HEIGHT, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
+	SDL_screen = SDL_SetVideoMode(WIDTH, HEIGHT, 32, SDL_SWSURFACE|SDL_DOUBLEBUF);
 	if ( SDL_screen == NULL )
 		{
 		fprintf(stderr, "Impossible de passer en %dx%d en 32 bits: %s\n", WIDTH, HEIGHT, SDL_GetError());

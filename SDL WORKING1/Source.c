@@ -65,9 +65,7 @@ int main(int argc, char *argv[])
 		}
 		JoueursUnCentre.x = 20; JoueursUnCentre.y = 300 + (PositionJoueurUn.y * 2);				//déplacement des pods
 		Joueurs(JoueursUnCentre);
-
-
-
+		
 		JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300 + (PositionJoueurDeux.y * 2);
 		Joueurs(JoueursDeuxCentre);
 
@@ -140,7 +138,6 @@ int main(int argc, char *argv[])
 			}
 			balle(PositionBalle);
 		}
-
 	}
 	wait_escape();
 	return(0);
