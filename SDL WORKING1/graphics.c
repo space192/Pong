@@ -982,3 +982,19 @@ int distance(POINT P1, POINT P2)
 	d = (P1.x-P2.x)*(P1.x-P2.x) + (P1.y-P2.y)*(P1.y-P2.y);
 	return (int)(sqrt(d));
 	}
+
+void pause()
+{
+	int continuer = 1;
+	SDL_Event event;
+
+	while (continuer)
+	{
+		SDL_WaitEvent(&event);
+		switch (event.type)
+		{
+		case SDL_QUIT:
+			continuer = 0;
+		}
+	}
+}

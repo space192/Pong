@@ -6,7 +6,7 @@ void ScoresJoueurUn(int ScoreJoueurUn)
 	POINT basDroitJoueurUn;
 	POINT hautGaucheJoueurUn;
 	
-	CentreScoreJoueurUn.x = 300; CentreScoreJoueurUn.y = 580;
+	CentreScoreJoueurUn.x = 300; CentreScoreJoueurUn.y = 680;
 	basDroitJoueurUn.x = CentreScoreJoueurUn.x - 50;
 	basDroitJoueurUn.y = CentreScoreJoueurUn.y - 55;
 	hautGaucheJoueurUn.x = CentreScoreJoueurUn.x + 50;
@@ -24,7 +24,7 @@ void ScoresJoueurDeux(int ScoreJoueurDeux)
 	POINT basDroitJoueurDeux;
 	POINT hautGaucheJoueurDeux;
 
-	CentreScoreJoueurDeux.x = 500; CentreScoreJoueurDeux.y = 580;
+	CentreScoreJoueurDeux.x = 500; CentreScoreJoueurDeux.y = 680;
 	basDroitJoueurDeux.x = CentreScoreJoueurDeux.x - 50;
 	basDroitJoueurDeux.y = CentreScoreJoueurDeux.y - 55;
 	hautGaucheJoueurDeux.x = CentreScoreJoueurDeux.x + 50;

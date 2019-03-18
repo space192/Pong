@@ -1,6 +1,8 @@
 #include "graphics.h"
 #include <stdio.h>
 #include "unistd.h"
+#include <stdlib.h>
+#include <SDL.h>
 void balle(POINT PositionBalle);
 void Joueurs(POINT JoueursUnCentre);
 void Joueurs(POINT JoueursDeuxCentre);
@@ -10,7 +12,7 @@ void ScoresJoueurDeux(int ScoreJoueurDeux);
 int main(int argc, char *argv[])
 {
 	int tailleFenetreX = 800;
-	int tailleFenetreY = 600;
+	int tailleFenetreY = 700;
 	POINT PositionBalle;
 	POINT JoueursUnCentre;
 	POINT JoueursDeuxCentre;
@@ -24,19 +26,44 @@ int main(int argc, char *argv[])
 	POINT depBalle;
 	POINT directionBalle;
 	POINT multiDirectionBalle;
+	POINT ligneHautGauche;
+	POINT ligneHautDroite;
 	int ScoreJoueurUn = 0;
 	int ScoreJoueurDeux = 0;
 	int scorePartie = 0;
 	init_graphics(tailleFenetreX, tailleFenetreY);
+	ligneHautGauche.x = 0; ligneHautGauche.y = 607;
+	ligneHautDroite.x = 800; ligneHautDroite.y = 607;
+	draw_line(ligneHautDroite, ligneHautGauche, blanc);
 	PositionBalle.x = 400; PositionBalle.y = 300;
 	depBalle.x = 1; depBalle.y = 1;
+
+
+	SDL_Surface *ecran = NULL, *zozor = NULL;
+	SDL_Rect positionZozor;
+
+	positionZozor.x = 400;
+	positionZozor.y = 350;
+
+	SDL_Init(SDL_INIT_VIDEO);
+
+
+	/* Chargement et blittage de Zozor sur la scène */
+	zozor = SDL_LoadBMP("zozor.bmp");
+	SDL_BlitSurface(zozor, NULL, &positionZozor);
+
+	pause();
+
+	SDL_FreeSurface(zozor);
+	SDL_Quit();
+
 
 	ScoresJoueurUn(ScoreJoueurUn);
 	ScoresJoueurDeux(ScoreJoueurDeux);
 
 	PositionJoueurUn.x = 0; PositionJoueurUn.y = 0;
 	PositionJoueurDeux.x = 0; PositionJoueurDeux.y = 0;
-	
+
 	directionBalle.y = 1;
 	directionBalle.x = 1;
 	while (scorePartie < 10)
@@ -64,9 +91,25 @@ int main(int argc, char *argv[])
 			break;
 		}
 		JoueursUnCentre.x = 20; JoueursUnCentre.y = 300 + (PositionJoueurUn.y * 2);				//déplacement des pods
+		if (JoueursUnCentre.y > 506)
+		{
+			JoueursUnCentre.y = 506;
+		}
+		else if (JoueursUnCentre.y < 100)
+		{
+			JoueursUnCentre.y = 100;
+		}
 		Joueurs(JoueursUnCentre);
-		
+
 		JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300 + (PositionJoueurDeux.y * 2);
+		if (JoueursDeuxCentre.y > 506)
+		{
+			JoueursDeuxCentre.y = 506;
+		}
+		else if (JoueursDeuxCentre.y < 100)
+		{
+			JoueursDeuxCentre.y = 100;
+		}
 		Joueurs(JoueursDeuxCentre);
 
 		BasDroitUn.x = JoueursUnCentre.x + 10;
