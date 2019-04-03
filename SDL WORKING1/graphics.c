@@ -170,26 +170,50 @@ POINT get_arrow()
 	dep.x = dep.y = 0;
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
-		{
+	{
 		/* Si l'utilisateur a demandé à fermer la fenêtre, on quitte */
 		if (event.type == SDL_QUIT) exit(0);
-	
+		Uint8 *keystates = SDL_GetKeyState(NULL);
 		/* Si l'utilisateur a appuyé sur une touche */
-		if (event.type == SDL_KEYDOWN)
-			{
-			switch (event.key.keysym.sym)
-					{
-						case SDLK_ESCAPE : exit(0);
-						case SDLK_s   : (dep.x) -= MINDEP; break;
-						case SDLK_w  : (dep.x) += MINDEP; break;
-						case SDLK_UP     : (dep.y) += MINDEP; break;
-						case SDLK_DOWN   : (dep.y) -= MINDEP; break;
-						default          : break;
-					}
-			}
+		if (keystates[SDLK_s])
+		{
+			(dep.x) -= MINDEP;
 		}
-	return dep;
+		else if (keystates[SDLK_s] && keystates[SDLK_DOWN])
+		{
+			(dep.x) -= MINDEP;
+			(dep.y) -= MINDEP;
+		}
+		if (keystates[SDLK_w])
+		{
+			(dep.x) += MINDEP;
+		}
+		else if (keystates[SDLK_w] && keystates[SDLK_UP])
+		{
+			(dep.x) += MINDEP;
+			(dep.y) += MINDEP;
+		}
+		if (keystates[SDLK_DOWN])
+		{
+			(dep.y) -= MINDEP;
+		}
+		else if (keystates[SDLK_DOWN] && keystates[SDLK_w])
+		{
+			(dep.x) += MINDEP;
+			(dep.y) -= MINDEP;
+		}
+		if (keystates[SDLK_UP])
+		{
+			(dep.y) += MINDEP;
+		}
+		else if (keystates[SDLK_UP] && keystates[SDLK_s])
+		{
+			(dep.x) -= MINDEP;
+			(dep.y) += MINDEP;
+		}
+		return dep;
 	}
+}
 
 
 	// 3.2 Renvoie déplacement de souris

@@ -1,8 +1,6 @@
 #include "graphics.h"
 #include <stdio.h>
 #include "unistd.h"
-#include <stdlib.h>
-#include <SDL.h>
 void balle(POINT PositionBalle);
 void Joueurs(POINT JoueursUnCentre);
 void Joueurs(POINT JoueursDeuxCentre);
@@ -38,24 +36,6 @@ int main(int argc, char *argv[])
 	PositionBalle.x = 400; PositionBalle.y = 300;
 	depBalle.x = 1; depBalle.y = 1;
 
-
-	SDL_Surface *ecran = NULL, *zozor = NULL;
-	SDL_Rect positionZozor;
-
-	positionZozor.x = 400;
-	positionZozor.y = 350;
-
-	SDL_Init(SDL_INIT_VIDEO);
-
-
-	/* Chargement et blittage de Zozor sur la scène */
-	zozor = SDL_LoadBMP("zozor.bmp");
-	SDL_BlitSurface(zozor, NULL, &positionZozor);
-
-	pause();
-
-	SDL_FreeSurface(zozor);
-	SDL_Quit();
 
 
 	ScoresJoueurUn(ScoreJoueurUn);

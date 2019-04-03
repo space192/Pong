@@ -138,6 +138,7 @@
     <ClCompile Include="balle.c" />
     <ClCompile Include="graphics.c" />
     <ClCompile Include="Joueurs.c" />
+    <ClCompile Include="partie.c" />
     <ClCompile Include="Score.c" />
     <ClCompile Include="Source.c">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
