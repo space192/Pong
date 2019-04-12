@@ -310,7 +310,7 @@ POINT wait_clic()
 			{
 			encore=0;
 			P.x = event.button.x;
-			P.y = HEIGHT-event.button.y;
+			P.y = event.button.y;
 			}
 		/* Si l'utilisateur déplace la souris */
 		if (event.type == SDL_MOUSEMOTION)
@@ -321,7 +321,7 @@ POINT wait_clic()
 				if (police[10]) 
 					{
 					draw_fill_rectangle(E,F,noir);
-					sprintf(S,"%4d %4d",event.motion.x,HEIGHT - event.motion.y);
+					sprintf(S,"%4d %4d",event.motion.x,event.motion.y);
 					aff_pol(S,10,E,gris);
 					affiche_all();
 					}
@@ -1022,3 +1022,5 @@ void pause()
 		}
 	}
 }
+
+
