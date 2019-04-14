@@ -107,7 +107,7 @@
 	// y positif = nombre d'appuis sur la flèche haut
 	// Instruction non bloquante, si aucune flèche n'a été
 	// appuyée les champs x et y vaudront 0.
-	POINT get_arrow();
+	SDL_Rect get_arrow();
 
 	// 3.2 Renvoie déplacement de souris
 	// Meme sémantique que get_arrow()

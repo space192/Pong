@@ -1,22 +1,12 @@
 #include "graphics.h"
+#include "SDL.h"
+#include "SDL_image.h"
 
-void Joueurs(POINT JoueursCentre)
+int Joueurs(SDL_Rect positionJoueurs, SDL_Surface *ecran)
 {
-	POINT BasGauchePrincip;
-	POINT HautDroitPrincip;
-	POINT destockageBasGauchePrincip;
-	POINT destockageHautDroitPrincip;
+	SDL_Surface *player = NULL;
 
-
-	BasGauchePrincip.x = JoueursCentre.x - 10;
-	BasGauchePrincip.y = JoueursCentre.y - 100;
-	HautDroitPrincip.x = JoueursCentre.x + 10;
-	HautDroitPrincip.y = JoueursCentre.y + 100;
-
-	destockageBasGauchePrincip = BasGauchePrincip;
-	destockageHautDroitPrincip = HautDroitPrincip;
-
-	draw_fill_rectangle(BasGauchePrincip, HautDroitPrincip, blanc);
-
-	draw_fill_rectangle(destockageBasGauchePrincip, destockageHautDroitPrincip, noir);
+	player = IMG_Load("Pod_Joueurs.bmp");
+	SDL_SetColorKey(player, SDL_SRCCOLORKEY, SDL_MapRGB(player->format, 0, 0, 255));
+	SDL_BlitSurface(player, NULL, ecran, &positionJoueurs);
 }

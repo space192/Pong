@@ -164,9 +164,9 @@ COULEUR couleur_RGB(int r, int g, int b)
 	// y positif = nombre d'appuis sur la flèche haut
 	// Instruction non bloquante, si aucune flèche n'a été
 	// appuyée les champs x et y vaudront 0.
-POINT get_arrow()
+SDL_Rect get_arrow()
 	{
-	POINT dep;
+	SDL_Rect dep;
 	dep.x = dep.y = 0;
 	SDL_Event event;
 	while (SDL_PollEvent(&event))

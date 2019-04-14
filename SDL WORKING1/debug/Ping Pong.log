@@ -1,3 +1,4 @@
 ﻿  partie.c
-c:\ping pong\sdl working1\partie.c(166): warning C4098: 'Jeu' : fonction 'void' retournant une valeur
-  Ping Pong.vcxproj -> C:\Ping Pong\SDL WORKING1\Debug\Ping Pong.exe
+c:\ping pong\sdl working1\partie.c(44): warning C4013: 'joueurs' non défini(e) ; extern retournant int pris par défaut
+partie.obj : error LNK2019: symbole externe non résolu _joueurs référencé dans la fonction _Jeu
+C:\Ping Pong\SDL WORKING1\Debug\Ping Pong.exe : fatal error LNK1120: 1 externes non résolus

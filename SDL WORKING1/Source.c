@@ -4,7 +4,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 void pause();
-void Jeu();
+void Jeu(SDL_Surface *ecran);
 
 
 int main(int argc, char *argv[])
@@ -32,7 +32,8 @@ int main(int argc, char *argv[])
 		if ((positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y < 330) && (positionClic.y > 285))
 		{
 			continuer = 0;
-			Jeu();
+			SDL_FreeSurface(menu);
+			Jeu(ecran);
 		}
 		else if ((positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y > 445) && (positionClic.y < 490))
 		{
@@ -40,7 +41,6 @@ int main(int argc, char *argv[])
 			SDL_Quit();
 		}
 	}
-	SDL_FreeSurface(menu);
 	SDL_Quit();
 	
 	return EXIT_SUCCESS;

@@ -1,22 +1,13 @@
 #include "graphics.h"
+#include "SDL.h"
+#include "SDL_image.h"
 
-void balle(POINT FigureCentre)
+void balle(SDL_Rect positionBalle, SDL_Surface *ecran)
 {
-	POINT BasGaucheBalle;
-	POINT HautDroitBalle;
-	POINT destockageBasGaucheBalle;
-	POINT destockageHautDroitBalle;
+	SDL_Surface *balles = NULL;
 
-	BasGaucheBalle.x = FigureCentre.x - 6;
-	BasGaucheBalle.y = FigureCentre.y - 6;
-	HautDroitBalle.x = FigureCentre.x + 6;
-	HautDroitBalle.y = FigureCentre.y + 6;
-
-	destockageBasGaucheBalle = BasGaucheBalle;
-	destockageHautDroitBalle = HautDroitBalle;
-
-	draw_fill_rectangle(BasGaucheBalle, HautDroitBalle, blanc);
-
-	draw_fill_rectangle(destockageBasGaucheBalle, destockageHautDroitBalle, noir);
+	balles = IMG_Load("balle.bmp");
+	SDL_SetColorKey(balles, SDL_SRCCOLORKEY, SDL_MapRGB(balles->format, 0, 0, 255));
+	SDL_BlitSurface(balles, NULL, ecran, &positionBalle);
 }
 

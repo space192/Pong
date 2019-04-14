@@ -1,136 +1,91 @@
 #include "graphics.h"
 #include <stdio.h>
 #include "unistd.h"
-void balle(POINT PositionBalle);
-void Joueurs(POINT JoueursUnCentre);
-void Joueurs(POINT JoueursDeuxCentre);
+#include "SDL.h"
+#include "SDL_image.h"
+void balle(SDL_Rect positionBalle, SDL_Surface *ecran);
+int Joueurs(SDL_Rect positionJoueurs, SDL_Surface *ecran);
 void ScoresJoueurUn(int ScoreJoueurUn);
 void ScoresJoueurDeux(int ScoreJoueurDeux);
+void pause();
 
-void Jeu()
+void Jeu(SDL_Surface *ecran)
 {
-	int tailleFenetreX = 800;
-	int tailleFenetreY = 700;
-	POINT PositionBalle;
-	POINT JoueursUnCentre;
-	POINT JoueursDeuxCentre;
-	POINT get_arrow();
-	POINT PositionJoueurUn;
-	POINT BasDroitUn;
-	POINT HautDroitUn;
-	POINT PositionJoueurDeux;
-	POINT BasGaucheDeux;
-	POINT HautGaucheDeux;
-	POINT depBalle;
-	POINT directionBalle;
-	POINT multiDirectionBalle;
-	POINT ligneHautGauche;
-	POINT ligneHautDroite;
-	int ScoreJoueurUn = 0;
-	int ScoreJoueurDeux = 0;
-	int scorePartie = 0;
-	init_graphics(tailleFenetreX, tailleFenetreY);
-	ligneHautGauche.x = 0; ligneHautGauche.y = 607;
-	ligneHautDroite.x = 800; ligneHautDroite.y = 607;
-	draw_line(ligneHautDroite, ligneHautGauche, blanc);
-	PositionBalle.x = 400; PositionBalle.y = 300;
+	SDL_Rect positionBalle;
+	SDL_Rect get_arrow();
+	SDL_Rect positionJoueurUn;
+	SDL_Rect positionJoueurDeux;
+	SDL_Rect depBalle;
+	SDL_Rect directionBalle;
+	SDL_Rect basDroitUn;
+	SDL_Rect hautDroitUn;
+	SDL_Rect basGaucheDeux;
+	SDL_Rect hautGaucheDeux;
+	int scoreJoueurUn = 0;
+	int scoreJoueurDeux = 0;
+	positionBalle.x = 400; positionBalle.y = 300;
+	positionJoueurUn.x = 20; positionJoueurUn.y = 300;
+	positionJoueurDeux.x = 780; positionJoueurDeux.y = 300;
 	depBalle.x = 1; depBalle.y = 1;
+	directionBalle.x = 1; directionBalle.y = 1;
 
-
-
-	ScoresJoueurUn(ScoreJoueurUn);
-	ScoresJoueurDeux(ScoreJoueurDeux);
-
-	PositionJoueurUn.x = 0; PositionJoueurUn.y = 0;
-	PositionJoueurDeux.x = 0; PositionJoueurDeux.y = 0;
-
-	directionBalle.y = 1;
-	directionBalle.x = 1;
-	while ((ScoreJoueurUn < 5) && (ScoreJoueurDeux < 5))
+	while ((scoreJoueurUn < 5) && (scoreJoueurDeux < 5))
 	{
-		multiDirectionBalle = get_arrow();
-
-
-
-		switch (multiDirectionBalle.x) //getarrow.x correspond au déplacement en y du joueur 1
+		positionJoueurUn.y = positionJoueurUn.y + (get_arrow().x * 2);
+		positionJoueurDeux.y = positionJoueurDeux.y + (get_arrow().y * 2);
+		if (positionJoueurUn.y > 506)
 		{
-		case 1:
-			PositionJoueurUn.y = PositionJoueurUn.y + multiDirectionBalle.x;
-			break;
-		case -1:
-			PositionJoueurUn.y = PositionJoueurUn.y + multiDirectionBalle.x;
-			break;
+			positionJoueurUn.y = 506;
 		}
-		switch (multiDirectionBalle.y) //getarrow.y correspond au déplacement en y du joueur 2
+		else if (positionJoueurUn.y < 100)
 		{
-		case 1:
-			PositionJoueurDeux.y = PositionJoueurDeux.y + multiDirectionBalle.y;
-			break;
-		case -1:
-			PositionJoueurDeux.y = PositionJoueurDeux.y + multiDirectionBalle.y;
-			break;
+			positionJoueurUn.y = 100;
 		}
-		JoueursUnCentre.x = 20; JoueursUnCentre.y = 300 + (PositionJoueurUn.y * 2);				//déplacement des pods
-		if (JoueursUnCentre.y > 506)
+		joueurs(positionJoueurUn, ecran);
+		if (positionJoueurDeux.y > 506)
 		{
-			JoueursUnCentre.y = 506;
+			positionJoueurDeux.y = 506;
 		}
-		else if (JoueursUnCentre.y < 100)
+		else if (positionJoueurDeux.y < 100)
 		{
-			JoueursUnCentre.y = 100;
+			positionJoueurDeux.y = 100;
 		}
-		Joueurs(JoueursUnCentre);
+		joueurs(positionJoueurDeux, ecran);
 
-		JoueursDeuxCentre.x = 780; JoueursDeuxCentre.y = 300 + (PositionJoueurDeux.y * 2);
-		if (JoueursDeuxCentre.y > 506)
-		{
-			JoueursDeuxCentre.y = 506;
-		}
-		else if (JoueursDeuxCentre.y < 100)
-		{
-			JoueursDeuxCentre.y = 100;
-		}
-		Joueurs(JoueursDeuxCentre);
+		basDroitUn.x = positionJoueurUn.x + 10;
+		basDroitUn.y = positionJoueurUn.y - 100;
+		hautDroitUn.x = positionJoueurUn.x + 10;
+		hautDroitUn.y = positionJoueurUn.y + 100;
 
-		BasDroitUn.x = JoueursUnCentre.x + 10;
-		BasDroitUn.y = JoueursUnCentre.y - 100;
-		HautDroitUn.x = JoueursUnCentre.x + 10;
-		HautDroitUn.y = JoueursUnCentre.y + 100;
+		basGaucheDeux.x = positionJoueurDeux.x - 10;
+		basGaucheDeux.y = positionJoueurDeux.y - 100;
+		hautGaucheDeux.x = positionJoueurDeux.x - 10;
+		hautGaucheDeux.y = positionJoueurDeux.y + 100;
 
-		BasGaucheDeux.x = JoueursDeuxCentre.x - 10;
-		BasGaucheDeux.y = JoueursDeuxCentre.y - 100;
-		HautGaucheDeux.x = JoueursDeuxCentre.x - 10;
-		HautGaucheDeux.y = JoueursDeuxCentre.y + 100;
-
-		if (PositionBalle.x == 800)
+		if (positionBalle.x == 800)
 		{
-			ScoreJoueurUn++;
-			PositionBalle.x = 400;
-			PositionBalle.y = 300;
-			ScoresJoueurUn(ScoreJoueurUn);
+			positionBalle.x = 400;
+			positionBalle.y = 300;
 		}
-		else if (PositionBalle.x == 0)
+		else if (positionBalle.x == 0)
 		{
-			ScoreJoueurDeux++;
-			PositionBalle.x = 400;
-			PositionBalle.y = 300;
-			ScoresJoueurDeux(ScoreJoueurDeux);
+			positionBalle.x = 400;
+			positionBalle.y = 300;
 		}
 		else
 		{
-
 			switch (directionBalle.y)
 			{
 			case 1:
-				PositionBalle.y += depBalle.y;
-				if (PositionBalle.y == 600)
+				positionBalle.y += depBalle.y;
+				if (positionBalle.y == 600)
 				{
 					directionBalle.y = 0;
 				}
 				break;
 			case 0:
-				PositionBalle.y -= depBalle.y;
-				if (PositionBalle.y == 0)
+				positionBalle.y -= depBalle.y;
+				if (positionBalle.y == 0)
 				{
 					directionBalle.y = 1;
 				}
@@ -139,29 +94,29 @@ void Jeu()
 			switch (directionBalle.x)
 			{
 			case 1:
-				PositionBalle.x += depBalle.x;
-				if (PositionBalle.x == 770)
+				positionBalle.x += depBalle.x;
+				if (positionBalle.x == 770)
 				{
-					if (PositionBalle.y < HautGaucheDeux.y && PositionBalle.y > BasGaucheDeux.y)
+					if (positionBalle.y < hautGaucheDeux.y && positionBalle.y > basGaucheDeux.y)
 					{
 						directionBalle.x = 0;
 					}
 				}
 				break;
 			case 0:
-				PositionBalle.x -= depBalle.x;
-				if (PositionBalle.x == 30)
+				positionBalle.x -= depBalle.x;
+				if (positionBalle.x == 30)
 				{
-					if (PositionBalle.y < HautDroitUn.y && PositionBalle.y > BasDroitUn.y)
+					if (positionBalle.y < hautDroitUn.y && positionBalle.y > basDroitUn.y)
 					{
 						directionBalle.x = 1;
 					}
 				}
 				break;
 			}
-			balle(PositionBalle);
+			balle(positionBalle, ecran);
+			SDL_Flip(ecran);
 		}
+		wait_escape();
 	}
-	wait_escape();
-	return(0);
 }
