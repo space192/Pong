@@ -36,9 +36,10 @@ void Jeu(SDL_Surface* ecran)
 
 	while ((scoreJoueurUn < 5) && (scoreJoueurDeux < 5))
 	{
+		SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
 		depJoueur = get_arrow();
-		positionJoueurUn.y = positionJoueurUn.y + (depJoueur.x * 2);
-		positionJoueurDeux.y = positionJoueurDeux.y + (depJoueur.y * 2);
+		positionJoueurUn.y = positionJoueurUn.y + (depJoueur.x * 8);
+		positionJoueurDeux.y = positionJoueurDeux.y + (depJoueur.y * 8);
 		if (positionJoueurUn.y > 506)
 		{
 			positionJoueurUn.y = 506;
