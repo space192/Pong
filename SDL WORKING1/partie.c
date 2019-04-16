@@ -3,13 +3,9 @@
 #include "unistd.h"
 #include "SDL.h"
 #include "SDL_image.h"
-void balle(SDL_Rect positionBalle, SDL_Surface *ecran);
-int Joueurs(SDL_Rect positionJoueurs, SDL_Surface *ecran);
-void ScoresJoueurUn(int ScoreJoueurUn);
-void ScoresJoueurDeux(int ScoreJoueurDeux);
 void pause();
 
-void Jeu(SDL_Surface *ecran)
+void Jeu(SDL_Surface* ecran)
 {
 	SDL_Rect positionBalle;
 	SDL_Rect get_arrow();
@@ -21,18 +17,28 @@ void Jeu(SDL_Surface *ecran)
 	SDL_Rect hautDroitUn;
 	SDL_Rect basGaucheDeux;
 	SDL_Rect hautGaucheDeux;
+	SDL_Rect depJoueur;
+	SDL_Surface *player = NULL;
+	SDL_Surface *player2 = NULL;
+	SDL_Surface *balle = NULL;
 	int scoreJoueurUn = 0;
 	int scoreJoueurDeux = 0;
+	SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
 	positionBalle.x = 400; positionBalle.y = 300;
 	positionJoueurUn.x = 20; positionJoueurUn.y = 300;
 	positionJoueurDeux.x = 780; positionJoueurDeux.y = 300;
 	depBalle.x = 1; depBalle.y = 1;
 	directionBalle.x = 1; directionBalle.y = 1;
+	player = IMG_Load("Pod_Joueurs.bmp");
+	player2 = IMG_Load("Pod_Joueurs.bmp");
+	balle = IMG_Load("balle.bmp");
+	SDL_EnableKeyRepeat(100, 100);
 
 	while ((scoreJoueurUn < 5) && (scoreJoueurDeux < 5))
 	{
-		positionJoueurUn.y = positionJoueurUn.y + (get_arrow().x * 2);
-		positionJoueurDeux.y = positionJoueurDeux.y + (get_arrow().y * 2);
+		depJoueur = get_arrow();
+		positionJoueurUn.y = positionJoueurUn.y + (depJoueur.x * 2);
+		positionJoueurDeux.y = positionJoueurDeux.y + (depJoueur.y * 2);
 		if (positionJoueurUn.y > 506)
 		{
 			positionJoueurUn.y = 506;
@@ -41,7 +47,7 @@ void Jeu(SDL_Surface *ecran)
 		{
 			positionJoueurUn.y = 100;
 		}
-		joueurs(positionJoueurUn, ecran);
+		SDL_BlitSurface(player, NULL, ecran, &positionJoueurUn);
 		if (positionJoueurDeux.y > 506)
 		{
 			positionJoueurDeux.y = 506;
@@ -50,7 +56,7 @@ void Jeu(SDL_Surface *ecran)
 		{
 			positionJoueurDeux.y = 100;
 		}
-		joueurs(positionJoueurDeux, ecran);
+		SDL_BlitSurface(player2, NULL, ecran, &positionJoueurDeux);
 
 		basDroitUn.x = positionJoueurUn.x + 10;
 		basDroitUn.y = positionJoueurUn.y - 100;
@@ -114,9 +120,8 @@ void Jeu(SDL_Surface *ecran)
 				}
 				break;
 			}
-			balle(positionBalle, ecran);
+			SDL_BlitSurface(balle, NULL, ecran, &positionBalle);
 			SDL_Flip(ecran);
 		}
-		wait_escape();
 	}
 }

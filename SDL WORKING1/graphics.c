@@ -177,39 +177,39 @@ SDL_Rect get_arrow()
 		/* Si l'utilisateur a appuyé sur une touche */
 		if (keystates[SDLK_s])
 		{
-			(dep.x) -= MINDEP;
+			(dep.x) += MINDEP;
 		}
 		else if (keystates[SDLK_s] && keystates[SDLK_DOWN])
 		{
-			(dep.x) -= MINDEP;
-			(dep.y) -= MINDEP;
+			(dep.x) += MINDEP;
+			(dep.y) += MINDEP;
 		}
 		if (keystates[SDLK_w])
 		{
-			(dep.x) += MINDEP;
+			(dep.x) -= MINDEP;
 		}
 		else if (keystates[SDLK_w] && keystates[SDLK_UP])
 		{
-			(dep.x) += MINDEP;
-			(dep.y) += MINDEP;
+			(dep.x) -= MINDEP;
+			(dep.y) -= MINDEP;
 		}
 		if (keystates[SDLK_DOWN])
 		{
-			(dep.y) -= MINDEP;
+			(dep.y) += MINDEP;
 		}
 		else if (keystates[SDLK_DOWN] && keystates[SDLK_w])
 		{
-			(dep.x) += MINDEP;
-			(dep.y) -= MINDEP;
+			(dep.x) -= MINDEP;
+			(dep.y) += MINDEP;
 		}
 		if (keystates[SDLK_UP])
 		{
-			(dep.y) += MINDEP;
+			(dep.y) -= MINDEP;
 		}
 		else if (keystates[SDLK_UP] && keystates[SDLK_s])
 		{
-			(dep.x) -= MINDEP;
-			(dep.y) += MINDEP;
+			(dep.x) += MINDEP;
+			(dep.y) -= MINDEP;
 		}
 		return dep;
 	}
