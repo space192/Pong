@@ -73,5 +73,8 @@
     <Font Include="verdana.ttf">
       <Filter>Fichiers sources</Filter>
     </Font>
+    <Font Include="police.ttf">
+      <Filter>Fichiers sources</Filter>
+    </Font>
   </ItemGroup>
 </Project>

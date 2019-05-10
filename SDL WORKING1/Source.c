@@ -4,7 +4,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 void pause();
-void Jeu(SDL_Surface *ecran);
+int Jeu(SDL_Surface *ecran);
 
 
 int main(int argc, char *argv[])
@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
 	int continuer = 1;
 
 	SDL_Init(SDL_INIT_VIDEO);
+	SDL_WM_SetIcon(IMG_Load("pingpong.bmp"), NULL);
 	ecran = SDL_SetVideoMode(800, 700, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 	SDL_WM_SetCaption("PING PONG", NULL);
-
 	menu = IMG_Load("menu.bmp");
 	positionMenu.x = 0;
 	positionMenu.y = 0;

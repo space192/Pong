@@ -158,6 +158,7 @@
     <ClInclude Include="_mingw.h" />
   </ItemGroup>
   <ItemGroup>
+    <Font Include="police.ttf" />
     <Font Include="verdana.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
