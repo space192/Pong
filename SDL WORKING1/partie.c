@@ -3,7 +3,6 @@
 #include "unistd.h"
 #include "SDL.h"
 #include "SDL_image.h"
-#include "SDL_ttf.h"
 void pause();
 
 int Jeu(SDL_Surface* ecran)
@@ -28,18 +27,19 @@ int Jeu(SDL_Surface* ecran)
 	SDL_Surface *player2 = NULL;
 	SDL_Surface *balle = NULL;
 	SDL_Surface *ligne = NULL;
-	SDL_Surface *scoreJoueurUn = NULL;
-	SDL_Surface *scoreJoueurDeux = NULL;
-	int scoreJoueursUn = 0;
-	int scoreJoueursDeux = 0;
-	TTF_Init();
-	TTF_Font *police = NULL;
-	police = TTF_OpenFont("police.ttf", 50);
+	SDL_Surface *score0;
+	SDL_Surface *score1;
+	SDL_Surface *score2;
+	SDL_Surface *score3;
+	SDL_Surface *score4;
+	SDL_Surface *score5;
+	int scoreJoueurUn = 0;
+	int scoreJoueurDeux = 0;
+	char* fixedscore = (char*)scoreJoueurUn;
 	SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
 	positionBalle.x = 400; positionBalle.y = 300;
-	SDL_Color couleurBlanche = { 255, 255, 255 };
-	positionScoreJoueurUn.x = 100; positionJoueurUn.y = 50;
-	positionScoreJoueurDeux.x = 600; positionScoreJoueurDeux.y = 50;
+	positionScoreJoueurUn.x = 200; positionJoueurUn.y = 50;
+	positionScoreJoueurDeux.x = 600; positionScoreJoueurDeux.y = 0;
 	positionJoueurUn.x = 30; positionJoueurUn.y = 300;
 	positionJoueurDeux.x = 750; positionJoueurDeux.y = 300;
 	positionLigne.x = 0; positionLigne.y = 100;
@@ -50,8 +50,13 @@ int Jeu(SDL_Surface* ecran)
 	balle = IMG_Load("balle.bmp");
 	ligne = IMG_Load("Barre_de_Score.bmp");
 	SDL_EnableKeyRepeat(15, 15);
-
-	while ((scoreJoueursUn < 5) && (scoreJoueursDeux < 5))
+	score0 = IMG_Load("0.bmp");
+	score1 = IMG_Load("1.bmp");
+	score2 = IMG_Load("2.bmp");
+	score3 = IMG_Load("3.bmp");
+	score4 = IMG_Load("4.bmp");
+	score5 = IMG_Load("5.bmp");
+	while ((scoreJoueurUn < 5) && (scoreJoueurDeux < 5))
 	{
 		SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
 		depJoueur = get_arrow();
@@ -95,13 +100,13 @@ int Jeu(SDL_Surface* ecran)
 		{
 			positionBalle.x = 400;
 			positionBalle.y = 350;
-			scoreJoueursUn++;
+			scoreJoueurUn++;
 		}
 		else if (positionBalle.x == 0)
 		{
 			positionBalle.x = 400;
 			positionBalle.y = 350;
-			scoreJoueursDeux++;
+			scoreJoueurDeux++;
 		}
 		else
 		{
@@ -145,13 +150,53 @@ int Jeu(SDL_Surface* ecran)
 				}
 				break;
 			}
+			switch (scoreJoueurUn)
+			{
+			case 0:
+				SDL_BlitSurface(score0, NULL, ecran, &positionScoreJoueurUn);
+				break;
+			case 1:
+				SDL_BlitSurface(score1, NULL, ecran, &positionScoreJoueurUn);
+				break;
+			case 2:
+				SDL_BlitSurface(score2, NULL, ecran, &positionScoreJoueurUn);
+				break;
+			case 3:
+				SDL_BlitSurface(score3, NULL, ecran, &positionScoreJoueurUn);
+				break;
+			case 4:
+				SDL_BlitSurface(score4, NULL, ecran, &positionScoreJoueurUn);
+				break;
+			case 5:
+				SDL_BlitSurface(score5, NULL, ecran, &positionScoreJoueurUn);
+				break;
+			}
+			switch (scoreJoueurDeux)
+			{
+			case 0:
+				SDL_BlitSurface(score0, NULL, ecran, &positionScoreJoueurDeux);
+				break;
+			case 1:
+				SDL_BlitSurface(score1, NULL, ecran, &positionScoreJoueurDeux);
+				break;
+			case 2:
+				SDL_BlitSurface(score2, NULL, ecran, &positionScoreJoueurDeux);
+				break;
+			case 3:
+				SDL_BlitSurface(score3, NULL, ecran, &positionScoreJoueurDeux);
+				break;
+			case 4:
+				SDL_BlitSurface(score4, NULL, ecran, &positionScoreJoueurDeux);
+				break;
+			case 5:
+				SDL_BlitSurface(score5, NULL, ecran, &positionScoreJoueurDeux);
+				break;
+			}
 			SDL_BlitSurface(balle, NULL, ecran, &positionBalle);
 			SDL_Flip(ecran);
 			SDL_Delay(5);
 		}
 	}
-	TTF_CloseFont(police);
-	TTF_Quit();
-	return scoreJoueursUn;
-	return scoreJoueursDeux;
+	return scoreJoueurUn;
+	return scoreJoueurDeux;
 }
