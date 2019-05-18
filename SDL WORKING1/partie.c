@@ -39,6 +39,7 @@ int Jeu(SDL_Surface* ecran)
 	int scoreJoueurUn = 0;
 	int scoreJoueurDeux = 0;
 	int vitesse = 10;
+	int scoreTotal = 0;
 	SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
 	positionBalle.x = 400; positionBalle.y = 300;
 	positionScoreJoueurUn.x = 200; positionJoueurUn.y = 50;
@@ -225,6 +226,6 @@ int Jeu(SDL_Surface* ecran)
 	Mix_FreeMusic(rebond);
 	Mix_FreeMusic(score);
 	Mix_CloseAudio();
-	return scoreJoueurUn;
-	return scoreJoueurDeux;
+	scoreTotal = scoreJoueurUn - scoreJoueurDeux;
+	return scoreTotal;
 }
