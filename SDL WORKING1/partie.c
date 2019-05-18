@@ -35,6 +35,7 @@ int Jeu(SDL_Surface* ecran)
 	SDL_Surface *score5;
 	int scoreJoueurUn = 0;
 	int scoreJoueurDeux = 0;
+	int vitesse = 10;
 	char* fixedscore = (char*)scoreJoueurUn;
 	SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
 	positionBalle.x = 400; positionBalle.y = 300;
@@ -62,18 +63,18 @@ int Jeu(SDL_Surface* ecran)
 		depJoueur = get_arrow();
 		positionJoueurUn.y = positionJoueurUn.y + (depJoueur.x * 10);
 		positionJoueurDeux.y = positionJoueurDeux.y + (depJoueur.y * 10);
-		if (positionJoueurUn.y > 500)
+		if (positionJoueurUn.y > 575)
 		{
-			positionJoueurUn.y = 500;
+			positionJoueurUn.y = 575;
 		}
 		else if (positionJoueurUn.y < 100)
 		{
 			positionJoueurUn.y = 100;
 		}
 		SDL_BlitSurface(player, NULL, ecran, &positionJoueurUn);
-		if (positionJoueurDeux.y > 500)
+		if (positionJoueurDeux.y > 575)
 		{
-			positionJoueurDeux.y = 500;
+			positionJoueurDeux.y = 575;
 		}
 		else if (positionJoueurDeux.y < 100)
 		{
@@ -82,12 +83,12 @@ int Jeu(SDL_Surface* ecran)
 		SDL_BlitSurface(player2, NULL, ecran, &positionJoueurDeux);
 		SDL_BlitSurface(ligne, NULL, ecran, &positionLigne);
 		basDroitUn.x = 50;
-		basDroitUn.y = positionJoueurUn.y + 200;
+		basDroitUn.y = positionJoueurUn.y + 125;
 		hautDroitUn.x = 50;
 		hautDroitUn.y = positionJoueurUn.y;
 
 		basGaucheDeux.x = 770;
-		basGaucheDeux.y = positionJoueurDeux.y + 200;
+		basGaucheDeux.y = positionJoueurDeux.y + 125;
 		hautGaucheDeux.x = 770;
 		hautGaucheDeux.y = positionJoueurDeux.y;
 
@@ -101,12 +102,14 @@ int Jeu(SDL_Surface* ecran)
 			positionBalle.x = 400;
 			positionBalle.y = 350;
 			scoreJoueurUn++;
+			vitesse = 10;
 		}
 		else if (positionBalle.x == 0)
 		{
 			positionBalle.x = 400;
 			positionBalle.y = 350;
 			scoreJoueurDeux++;
+			vitesse = 10;
 		}
 		else
 		{
@@ -136,6 +139,11 @@ int Jeu(SDL_Surface* ecran)
 					if ((hautDroitBalle.y > hautGaucheDeux.y) && (hautDroitBalle.y < basGaucheDeux.y))
 					{
 						directionBalle.x = 0;
+						if (vitesse > 2)
+						{
+							vitesse = vitesse - 0.5;
+						}
+						
 					}
 				}
 				break;
@@ -146,6 +154,11 @@ int Jeu(SDL_Surface* ecran)
 					if ((basGaucheBalle.y > hautDroitUn.y) && (basGaucheBalle.y < basDroitUn.y))
 					{
 						directionBalle.x = 1;
+						if (vitesse > 2)
+						{
+							vitesse = vitesse - 0.5;
+						}
+						
 					}
 				}
 				break;
@@ -194,7 +207,7 @@ int Jeu(SDL_Surface* ecran)
 			}
 			SDL_BlitSurface(balle, NULL, ecran, &positionBalle);
 			SDL_Flip(ecran);
-			SDL_Delay(5);
+			SDL_Delay(vitesse / 2);
 		}
 	}
 	return scoreJoueurUn;

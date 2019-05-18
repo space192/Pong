@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 			continuer = 0;
 			SDL_FreeSurface(menu);
 			Jeu(ecran);
+			
 		}
 		else if ((positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y > 445) && (positionClic.y < 490))
 		{
