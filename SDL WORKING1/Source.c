@@ -3,6 +3,7 @@
 #include "unistd.h"
 #include "SDL.h"
 #include "SDL_image.h"
+#include "SDL_mixer.h"
 void pause();
 int Jeu(SDL_Surface *ecran);
 
@@ -16,7 +17,7 @@ int main(int argc, char *argv[])
 	int lancement = 0;
 	int continuer = 1;
 
-	SDL_Init(SDL_INIT_VIDEO);
+	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
 	SDL_WM_SetIcon(IMG_Load("pingpong.bmp"), NULL);
 	ecran = SDL_SetVideoMode(800, 700, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 	SDL_WM_SetCaption("PING PONG", NULL);

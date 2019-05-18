@@ -3,6 +3,7 @@
 #include "unistd.h"
 #include "SDL.h"
 #include "SDL_image.h"
+#include "SDL_mixer.h"
 void pause();
 
 int Jeu(SDL_Surface* ecran)
@@ -33,10 +34,11 @@ int Jeu(SDL_Surface* ecran)
 	SDL_Surface *score3;
 	SDL_Surface *score4;
 	SDL_Surface *score5;
+	Mix_Music *rebond;
+	Mix_Music *score;
 	int scoreJoueurUn = 0;
 	int scoreJoueurDeux = 0;
 	int vitesse = 10;
-	char* fixedscore = (char*)scoreJoueurUn;
 	SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
 	positionBalle.x = 400; positionBalle.y = 300;
 	positionScoreJoueurUn.x = 200; positionJoueurUn.y = 50;
@@ -57,6 +59,10 @@ int Jeu(SDL_Surface* ecran)
 	score3 = IMG_Load("3.bmp");
 	score4 = IMG_Load("4.bmp");
 	score5 = IMG_Load("5.bmp");
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 4096);
+	rebond = Mix_LoadMUS("rebond.wav");
+	score = Mix_LoadMUS("point.wav");
+
 	while ((scoreJoueurUn < 5) && (scoreJoueurDeux < 5))
 	{
 		SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
@@ -103,6 +109,7 @@ int Jeu(SDL_Surface* ecran)
 			positionBalle.y = 350;
 			scoreJoueurUn++;
 			vitesse = 10;
+			Mix_PlayMusic(score, 1);
 		}
 		else if (positionBalle.x == 0)
 		{
@@ -110,6 +117,7 @@ int Jeu(SDL_Surface* ecran)
 			positionBalle.y = 350;
 			scoreJoueurDeux++;
 			vitesse = 10;
+			Mix_PlayMusic(score, 1);
 		}
 		else
 		{
@@ -120,6 +128,7 @@ int Jeu(SDL_Surface* ecran)
 				if (positionBalle.y == 685)
 				{
 					directionBalle.y = 0;
+					Mix_PlayMusic(rebond, 1);
 				}
 				break;
 			case 0:
@@ -127,6 +136,7 @@ int Jeu(SDL_Surface* ecran)
 				if (positionBalle.y == 100)
 				{
 					directionBalle.y = 1;
+					Mix_PlayMusic(rebond, 1);
 				}
 				break;
 			}
@@ -139,6 +149,7 @@ int Jeu(SDL_Surface* ecran)
 					if ((hautDroitBalle.y > hautGaucheDeux.y) && (hautDroitBalle.y < basGaucheDeux.y))
 					{
 						directionBalle.x = 0;
+						Mix_PlayMusic(rebond, 1);
 						if (vitesse > 2)
 						{
 							vitesse = vitesse - 0.5;
@@ -154,6 +165,7 @@ int Jeu(SDL_Surface* ecran)
 					if ((basGaucheBalle.y > hautDroitUn.y) && (basGaucheBalle.y < basDroitUn.y))
 					{
 						directionBalle.x = 1;
+						Mix_PlayMusic(rebond, 1);
 						if (vitesse > 2)
 						{
 							vitesse = vitesse - 0.5;
@@ -210,6 +222,9 @@ int Jeu(SDL_Surface* ecran)
 			SDL_Delay(vitesse / 2);
 		}
 	}
+	Mix_FreeMusic(rebond);
+	Mix_FreeMusic(score);
+	Mix_CloseAudio();
 	return scoreJoueurUn;
 	return scoreJoueurDeux;
 }
