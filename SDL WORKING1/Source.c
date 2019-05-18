@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	int lancement = 0;
 	int continuer = 1;
 
-	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
+	SDL_Init(SDL_INIT_VIDEO);
 	SDL_WM_SetIcon(IMG_Load("pingpong.bmp"), NULL);
 	ecran = SDL_SetVideoMode(800, 700, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 	SDL_WM_SetCaption("PING PONG", NULL);
@@ -35,7 +35,6 @@ int main(int argc, char *argv[])
 			continuer = 0;
 			SDL_FreeSurface(menu);
 			Jeu(ecran);
-			
 		}
 		else if ((positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y > 445) && (positionClic.y < 490))
 		{

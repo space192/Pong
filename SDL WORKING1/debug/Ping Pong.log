@@ -1,4 +1,2 @@
-﻿  partie.c
-c:\ping pong\sdl working1\partie.c(155): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-c:\ping pong\sdl working1\partie.c(171): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+﻿  Source.c
   Ping Pong.vcxproj -> C:\Ping Pong\SDL WORKING1\Debug\Ping Pong.exe
