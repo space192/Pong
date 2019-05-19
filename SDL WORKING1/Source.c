@@ -10,18 +10,23 @@ int Jeu(SDL_Surface *ecran);
 
 int main(int argc, char *argv[])
 {
-	SDL_Surface *ecran = NULL, *menu = NULL;
+	SDL_Surface *ecran = NULL, *menu = NULL, *regle = NULL, *joueur1win = NULL, *joueur2win = NULL;
 	SDL_Rect positionMenu;
 	POINT positionClic;
 	POINT wait_clic();
 	int lancement = 0;
 	int continuer = 1;
+	int totalPoint = 0;
+	int rejouer = 0;
 
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_WM_SetIcon(IMG_Load("pingpong.bmp"), NULL);
 	ecran = SDL_SetVideoMode(800, 700, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
 	SDL_WM_SetCaption("PING PONG", NULL);
 	menu = IMG_Load("menu.bmp");
+	regle = IMG_Load("regles.bmp");
+	joueur1win = IMG_Load("Joueur 1 win.bmp");
+	joueur2win = IMG_Load("Joueur 2 win.bmp");
 	positionMenu.x = 0;
 	positionMenu.y = 0;
 	SDL_BlitSurface(menu, NULL, ecran, &positionMenu);
@@ -30,18 +35,51 @@ int main(int argc, char *argv[])
 	while (continuer)
 	{
 		positionClic = wait_clic();
-		if ((positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y < 330) && (positionClic.y > 285))
+		if (((rejouer == 0) && (positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y < 330) && (positionClic.y > 285)) || (rejouer == 2))
 		{
-			continuer = 0;
-			SDL_FreeSurface(menu);
-			Jeu(ecran);
+			totalPoint = Jeu(ecran);
+			rejouer = 0;
+			if (totalPoint > 0)
+			{
+				SDL_BlitSurface(joueur1win, NULL, ecran, &positionMenu);
+				SDL_Flip(ecran);
+				rejouer = 1;
+			}
+			else if (totalPoint < 0)
+			{
+				SDL_BlitSurface(joueur2win, NULL, ecran, &positionMenu);
+				SDL_Flip(ecran);
+				rejouer = 1;
+			}
 		}
-		else if ((positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y > 445) && (positionClic.y < 490))
+		else if ((rejouer == 0) && (positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y > 445) && (positionClic.y < 490))
 		{
 			continuer = 0;
-			SDL_Quit();
+		}
+		else if ((rejouer == 0) && (positionClic.x > 749) && (positionClic.x < 770) && (positionClic.y > 28) && (positionClic.y < 57))
+		{
+			SDL_BlitSurface(regle, NULL, ecran, &positionMenu);
+			SDL_Flip(ecran);
+			SDL_Delay(19000);
+			SDL_BlitSurface(menu, NULL, ecran, &positionMenu);
+			SDL_Flip(ecran);
+		}
+		else if ((rejouer == 1) && (positionClic.x > 240) && (positionClic.x < 580) && (positionClic.y > 502) && (positionClic.y < 548))
+		{
+			continuer = 1;
+			rejouer = 2;
+		}
+		else if ((rejouer == 1) && (positionClic.x > 312) && (positionClic.x < 489) && (positionClic.y > 573) && (positionClic.y < 618))
+		{
+			continuer = 0;
+			rejouer = 0;
 		}
 	}
+	SDL_FreeSurface(ecran);
+	SDL_FreeSurface(menu);
+	SDL_FreeSurface(regle);
+	SDL_FreeSurface(joueur1win);
+	SDL_FreeSurface(joueur2win);
 	SDL_Quit();
 	
 	return EXIT_SUCCESS;
