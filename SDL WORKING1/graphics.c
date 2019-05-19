@@ -327,7 +327,7 @@ POINT wait_clic()
 					}
 			#endif
 #endif
-			printf("%cEn attente de clic ... %4d %4d           %c",13,event.motion.x,HEIGHT - event.motion.y,13);
+			printf("%cEn attente de clic ... %4d %4d           %c",13,event.motion.x,event.motion.y,13);
 			fflush(stdout);
 			}
 		/* Si l'utilisateur a demandé à fermer la fenêtre, on quitte */
