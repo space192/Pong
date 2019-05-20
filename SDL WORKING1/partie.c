@@ -151,7 +151,7 @@ int Jeu(SDL_Surface* ecran)
 					{
 						directionBalle.x = 0;
 						Mix_PlayMusic(rebond, 1);
-						if (vitesse > 0.5)
+						if (vitesse > 1)
 						{
 							vitesse = vitesse - 0.5;
 						}
@@ -167,7 +167,7 @@ int Jeu(SDL_Surface* ecran)
 					{
 						directionBalle.x = 1;
 						Mix_PlayMusic(rebond, 1);
-						if (vitesse > 0.5)
+						if (vitesse > 1)
 						{
 							vitesse = vitesse - 0.5;
 						}

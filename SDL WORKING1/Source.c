@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 	while (continuer)
 	{
 		positionClic = wait_clic();
-		if (((rejouer == 0) && (positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y < 330) && (positionClic.y > 285)) || (rejouer == 2))
+		if (((rejouer == 0) && (positionClic.x > 271) && (positionClic.x < 522) && (positionClic.y < 330) && (positionClic.y > 285)))
 		{
 			totalPoint = Jeu(ecran);
 			rejouer = 0;
@@ -80,11 +80,15 @@ int main(int argc, char *argv[])
 		}
 		else if ((rejouer == 1) && (positionClic.x > 240) && (positionClic.x < 580) && (positionClic.y > 502) && (positionClic.y < 548))
 		{
+			SDL_BlitSurface(menu, NULL, ecran, &positionMenu);
+			SDL_Flip(ecran);
 			continuer = 1;
-			rejouer = 2;
+			rejouer = 0;
 		}
 		else if ((rejouer == 1) && (positionClic.x > 312) && (positionClic.x < 489) && (positionClic.y > 573) && (positionClic.y < 618))
 		{
+			SDL_BlitSurface(menu, NULL, ecran, &positionMenu);
+			SDL_Flip(ecran);
 			continuer = 0;
 			rejouer = 0;
 		}
