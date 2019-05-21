@@ -43,7 +43,7 @@ int Jeu(SDL_Surface* ecran)
 	SDL_FillRect(ecran, NULL, SDL_MapRGB(ecran->format, 0, 0, 0));
 	positionBalle.x = 400; positionBalle.y = 300;
 	positionScoreJoueurUn.x = 200; positionJoueurUn.y = 50;
-	positionScoreJoueurDeux.x = 600; positionScoreJoueurDeux.y = 0;
+	positionScoreJoueurDeux.x = 550; positionScoreJoueurDeux.y = 0;
 	positionJoueurUn.x = 30; positionJoueurUn.y = 300;
 	positionJoueurDeux.x = 750; positionJoueurDeux.y = 300;
 	positionLigne.x = 0; positionLigne.y = 100;
@@ -151,7 +151,7 @@ int Jeu(SDL_Surface* ecran)
 					{
 						directionBalle.x = 0;
 						Mix_PlayMusic(rebond, 1);
-						if (vitesse > 1)
+						if (vitesse > 1.5)
 						{
 							vitesse = vitesse - 0.5;
 						}
@@ -167,7 +167,7 @@ int Jeu(SDL_Surface* ecran)
 					{
 						directionBalle.x = 1;
 						Mix_PlayMusic(rebond, 1);
-						if (vitesse > 1)
+						if (vitesse > 1.5)
 						{
 							vitesse = vitesse - 0.5;
 						}

@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 {
 	SDL_Surface *ecran = NULL, *menu = NULL, *regle = NULL, *joueur1win = NULL, *joueur2win = NULL, *easteregg = NULL;
 	Mix_Music *easterEgg;
+	Mix_Music *victorySound;
 	SDL_Rect positionMenu;
 	POINT positionClic;
 	POINT wait_clic();
@@ -19,6 +20,7 @@ int main(int argc, char *argv[])
 	int continuer = 1;
 	int totalPoint = 0;
 	int rejouer = 0;
+	int affRegle = 0;
 
 	SDL_Init(SDL_INIT_VIDEO);
 	SDL_WM_SetIcon(IMG_Load("pingpong.bmp"), NULL);
@@ -31,8 +33,9 @@ int main(int argc, char *argv[])
 	easteregg = IMG_Load("easter egg.bmp");
 	positionMenu.x = 0;
 	positionMenu.y = 0;
-	Mix_OpenAudio(11025, AUDIO_U8, MIX_DEFAULT_CHANNELS, 1024);
+	Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, MIX_DEFAULT_CHANNELS, 1024);
 	easterEgg = Mix_LoadMUS("easter egg.WAV");
+	victorySound = Mix_LoadMUS("victory.wav");
 	SDL_BlitSurface(menu, NULL, ecran, &positionMenu);
 	
 	SDL_Flip(ecran);
@@ -47,12 +50,14 @@ int main(int argc, char *argv[])
 			{
 				SDL_BlitSurface(joueur1win, NULL, ecran, &positionMenu);
 				SDL_Flip(ecran);
+				Mix_PlayMusic(victorySound, 1);
 				rejouer = 1;
 			}
 			else if (totalPoint < 0)
 			{
 				SDL_BlitSurface(joueur2win, NULL, ecran, &positionMenu);
 				SDL_Flip(ecran);
+				Mix_PlayMusic(victorySound, 1);
 				rejouer = 1;
 			}
 		}
@@ -60,13 +65,11 @@ int main(int argc, char *argv[])
 		{
 			continuer = 0;
 		}
-		else if ((rejouer == 0) && (positionClic.x > 749) && (positionClic.x < 770) && (positionClic.y > 28) && (positionClic.y < 57))
+		else if ((affRegle == 0) && (rejouer == 0) && (positionClic.x > 749) && (positionClic.x < 770) && (positionClic.y > 28) && (positionClic.y < 57))
 		{
 			SDL_BlitSurface(regle, NULL, ecran, &positionMenu);
 			SDL_Flip(ecran);
-			SDL_Delay(19000);
-			SDL_BlitSurface(menu, NULL, ecran, &positionMenu);
-			SDL_Flip(ecran);
+			affRegle = 1;
 		}
 		else if ((rejouer == 0) && (positionClic.x > 491) && (positionClic.x < 502) && (positionClic.y > 126) && (positionClic.y < 137))
 		{
@@ -91,6 +94,12 @@ int main(int argc, char *argv[])
 			SDL_Flip(ecran);
 			continuer = 0;
 			rejouer = 0;
+		}
+		else if ((affRegle == 1) && (rejouer == 0) && (positionClic.x > 736) && (positionClic.x < 772) && (positionClic.y > 31) && (positionClic.y < 60))
+		{
+			SDL_BlitSurface(menu, NULL, ecran, &positionMenu);
+			SDL_Flip(ecran);
+			affRegle = 0;
 		}
 	}
 	Mix_FreeMusic(easterEgg);
