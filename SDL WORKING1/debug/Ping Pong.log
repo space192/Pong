@@ -1,1 +1,4 @@
-﻿  Ping Pong.vcxproj -> C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL WORKING1\Debug\Ping Pong.exe
+﻿  partie.c
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\partie.c(156): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+c:\users\manil\desktop\ping ainsi que pong\sdl working1\partie.c(172): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  Ping Pong.vcxproj -> C:\Users\manil\Desktop\PING AINSI QUE PONG\SDL WORKING1\Debug\Ping Pong.exe
